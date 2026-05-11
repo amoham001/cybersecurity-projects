@@ -1,42 +1,43 @@
 import re
 
 def check_password_strength(password):
-    score = 0
     feedback = []
     
-    # Length check
-    if len(password) >= 12:
-        score += 1
-    else:
-        feedback.append("❌ Password too short (min 12 characters)")
+    # Step 1: Check length first (must be at least 12)
+    if len(password) < 12:
+        return "Very Weak", ["❌ Password too short (min 12 characters)"]
     
-    # Uppercase check
+    # Step 2: If length passes, check other criteria
+    score = 1  # Already 1 for passing length
+    
     if re.search(r'[A-Z]', password):
         score += 1
     else:
         feedback.append("❌ Add uppercase letters")
     
-    # Lowercase check
     if re.search(r'[a-z]', password):
         score += 1
     else:
         feedback.append("❌ Add lowercase letters")
     
-    # Number check
     if re.search(r'\d', password):
         score += 1
     else:
         feedback.append("❌ Add numbers")
     
-    # Special character check
     if re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
         score += 1
     else:
         feedback.append("❌ Add special characters")
     
-    # Strength rating
-    strength = ["Very Weak", "Weak", "Fair", "Good", "Strong", "Very Strong"]
-    return strength[score], feedback
+    # Step 3: Map score to strength
+    strengths = ["Very Weak", "Very Weak", "Weak", "Fair", "Strong", "Very Strong"]
+    strength = strengths[score]
+    
+    if not feedback:
+        feedback.append("✅ All criteria met!")
+    
+    return strength, feedback
 
 # Test
 password = input("Enter a password: ")
