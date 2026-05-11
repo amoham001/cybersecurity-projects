@@ -115,17 +115,19 @@ How it works:
 
 <div align="center">
 
-<i>Figure 1 - fair password</i>
-[Fair Password](https://github.com/amoham001/cybersecurity-projects/blob/de0737f94b8e51a7fec49322bee1896bfc56590a/password-analyzer/screenshots/fair.png)
+*Figure 1 - fair password*
+
+![Fair Password](https://github.com/amoham001/cybersecurity-projects/blob/de0737f94b8e51a7fec49322bee1896bfc56590a/password-analyzer/screenshots/fair.png)
 
 </div>
 
 ### Example 2 - Very Strong Password
 
 <div align="center">
-
-<i>Figure 2 - very strong password</i>
-[Very Strong Password](https://github.com/amoham001/cybersecurity-projects/blob/de0737f94b8e51a7fec49322bee1896bfc56590a/password-analyzer/screenshots/verystrong.png)
+    
+*Figure 2 - very strong password*
+ 
+![Very Strong Password](https://github.com/amoham001/cybersecurity-projects/blob/de0737f94b8e51a7fec49322bee1896bfc56590a/password-analyzer/screenshots/verystrong.png)
 
 </div>
 
@@ -133,9 +135,48 @@ How it works:
 
 <div align="center">
 
-<i>Figure 1 - very weak password</i>
-[Very Weak Password](https://github.com/amoham001/cybersecurity-projects/blob/de0737f94b8e51a7fec49322bee1896bfc56590a/password-analyzer/screenshots/veryweak.png)
+*Figure 3 - very weak Password*
+
+![Very Weak Password](https://github.com/amoham001/cybersecurity-projects/blob/430f21d5bdf5fd18d46f6b54adf806dda429e98e/password-analyzer/screenshots/veryweak.png)
 
 </div>
 
+## 🛠️ Technical Details
 
+| Pattern | Purpose |
+|---------|---------|
+| `[A-Z]` | Detects uppercase letters |
+| `[a-z]` | Detects lowercase letters |
+| `\d` | Detects numerical digits |
+| `[!@#$%^&*(),.?":{}&#124;<>]` | Detects special characters |
+
+### Scoring System
+
+| Score | Rating |
+|-------|--------|
+| 0 | Very Weak |
+| 1 | Weak |
+| 2 | Fair |
+| 3 | Good |
+| 4 | Strong |
+| 5 | Very Strong |
+
+## 💡 Potential Upgrades
+
+## 💡 Potential Enhancements
+
+- [ ] **Breach Database Check** - Implement Have I Been Pwned (HIBP) API integration to check if password appears in known breaches
+- [ ] **Common Password Dictionary** - Check against rockyou.txt or similar datasets for commonly used passwords
+- [ ] **Entropy Calculation** - Calculate password entropy (bits) and display alongside strength rating
+- [ ] **Keyboard Pattern Detection** - Detect sequential patterns like "qwerty" or "12345" and penalize them
+- [ ] **Substitution Pattern Detection** - Identify weak patterns like "P@ssw0rd" (common letter-to-symbol replacements)
+- [ ] **GUI Interface** - Build graphical interface using Tkinter or Flask web version for easier use
+- [ ] **Unicode/International Support** - Add support for non-ASCII characters and international character sets
+- [ ] **Batch Analysis** - Accept file input to analyze multiple passwords at once
+- [ ] **Customizable Strength Thresholds** - Allow users to define their own minimum requirements
+- [ ] **Password History** - Track previously checked passwords and export results to CSV
+- [ ] **Active Directory Integration** - Check passwords against organizational policies
+- [ ] **Strength Meter Visualization** - Visual progress bar or color-coded strength display
+- [ ] **Zxcvbn Integration** - Integrate popular password strength estimator library for advanced analysis
+- [ ] **Language-Specific Dictionaries** - Support multiple languages for common password detection
+- [ ] **Export Results** - Generate security reports in PDF or HTML format
